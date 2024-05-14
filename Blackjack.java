@@ -33,6 +33,15 @@ public class Blackjack {
         //       – Print: The dealer shows \n" + <first card> + "\nand has a card facing down \n" + <facedown card>
         //       – Print: \nThe dealer's total is hidden
 
+        int dealerCard1 = drawRandomCard();
+        int dealerCard2 = drawRandomCard();
+
+        System.out.println("\nThe dealer shows \n" + cardString(dealerCard1) + "\nand has a card facing down \n" + faceDown() + "\n\nThe dealer's total is hidden");
+
+        String hitOrStay = hitOrStay();
+
+        System.out.println(hitOrStay);
+
        
         //Task 8 – Keep asking the player to hit or stay (while loop).
         //       1. Every time the player hits
@@ -220,5 +229,22 @@ public class Blackjack {
      *      Please write 'hit' or 'stay'
      *   3. Returns the user's option 
      */
+
+    public static String hitOrStay() {
+        
+        System.out.println("Would you like to hit or stay?");
+
+        while (true) {
+            String input = scan.nextLine();
+            if (input.equals("hit") || input.equals("stay")) {
+                return "";
+            } else {
+                System.out.println("Please write 'hit' or 'stay'");
+            }
+        }
+        
+       
+
     }
+}
 
