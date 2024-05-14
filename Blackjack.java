@@ -50,7 +50,7 @@ public class Blackjack {
 
         //       2. Once the player stays, break the loop. 
 
-        while (hitOrStay.equals("hit")) {
+        while (hitOrStay.equalsIgnoreCase("hit")) {
             int newCard = drawRandomCard();
             userHandValue += Math.min(10, newCard);
             System.out.println("\nYou get a \n" + cardString(newCard) + "\nYour new total is: " + userHandValue);
@@ -272,7 +272,7 @@ public class Blackjack {
 
         while (true) {
             String input = scan.nextLine();
-            if (input.equals("hit") || input.equals("stay")) {
+            if (input.equalsIgnoreCase("hit") || input.equalsIgnoreCase("stay")) {
                 return input;
             } else {
                 System.out.println("Please write 'hit' or 'stay'");
