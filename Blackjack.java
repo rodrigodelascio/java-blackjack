@@ -40,8 +40,6 @@ public class Blackjack {
 
         String hitOrStay = hitOrStay();
 
-        System.out.println(hitOrStay);
-
        
         //Task 8 – Keep asking the player to hit or stay (while loop).
         //       1. Every time the player hits
@@ -51,6 +49,14 @@ public class Blackjack {
         //             - print: your new total is <total>
 
         //       2. Once the player stays, break the loop. 
+
+        while (hitOrStay.equals("hit")) {
+            int newCard = drawRandomCard();
+            userHandValue += Math.min(10, newCard);
+            System.out.println("\nYou get a \n" + cardString(newCard) + "\nYour new total is: " + userHandValue);
+            hitOrStay = hitOrStay();            
+        }
+
 
         
         //For tasks 9 to 13, see the article: Blackjack Part II. 
@@ -237,14 +243,12 @@ public class Blackjack {
         while (true) {
             String input = scan.nextLine();
             if (input.equals("hit") || input.equals("stay")) {
-                return "";
+                return input;
             } else {
                 System.out.println("Please write 'hit' or 'stay'");
             }
         }
-        
-       
-
+ 
     }
 }
 
