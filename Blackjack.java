@@ -54,8 +54,38 @@ public class Blackjack {
             int newCard = drawRandomCard();
             userHandValue += Math.min(10, newCard);
             System.out.println("\nYou get a \n" + cardString(newCard) + "\nYour new total is: " + userHandValue);
-            hitOrStay = hitOrStay();            
+            
+            if (userHandValue > 21) {
+                System.out.println("\nBust! You lose.");
+                System.exit(0);
+            }
+
+            hitOrStay = hitOrStay();
         }
+
+        System.out.println("\nDealer's turn...");
+        System.out.println("\nThe dealer's cards are \n" + cardString(dealerCard1) + "\nand a \n" + cardString(dealerCard2));
+
+        int dealerHandValue = Math.min(10, dealerCard1) + Math.min(10, dealerCard2);
+
+        while (dealerHandValue < 17) {
+            int newCard = drawRandomCard();
+            dealerHandValue += Math.min(10, newCard);
+            System.out.println("\nThe dealer gets a \n" + cardString(newCard));
+        }
+
+        System.out.println("\nDealer's total is: " + dealerHandValue);
+
+        if (dealerHandValue > 21) {
+            System.out.println("\nDealer busts! You win!");
+            System.exit(0);
+        } else if (userHandValue > dealerHandValue) {
+            System.out.println("\nYou win!");
+        } else {
+            System.out.println("\nYou lose.");
+        }
+
+
 
 
         
