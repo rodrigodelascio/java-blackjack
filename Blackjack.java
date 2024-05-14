@@ -9,12 +9,24 @@ public class Blackjack {
         System.out.println("Do you have a knack for Black Jack?");
         System.out.println("We shall see..");
         System.out.println("..Ready? Press anything to begin!");
+        
         //Task 3 – Wait for the user to press enter.
+        scan.nextLine();
+
         //Task 4 – Get two random cards.
         //       – Print them: \n You get a \n" + <randomCard> + "\n and a \n" + <randomCard>
+        int card1 = drawRandomCard();
+        int card2 = drawRandomCard();
+
+        System.out.println("\nYou get a \n" + cardString(card1) + "\n and a \n" + cardString(card2));
 
         //Task 5 – Print the sum of your hand value.
         //       – print: your total is: <hand value>
+
+        int userHandValue = Math.min(10, card1) + Math.min(10, card2);
+
+        System.out.println("\nYour total is: " + userHandValue);        
+
 
         
         //Task 6 – Get two random cards for the dealer.
